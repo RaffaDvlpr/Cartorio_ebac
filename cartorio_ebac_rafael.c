@@ -154,54 +154,78 @@ int main() //função principal
 	
 	int opcao=0; //definindo nome e valor da variável de decisão (numero inteiro)
 	int laco=1; //sistema de repetição de processos
+	char senhadigitada[20]="a";
+	int comparacao;
 	
-	for(laco=1;laco==1;) //nesse caso o loop acontecerá infinitamente, pois com "laco=1;" defino seu valor, enquanto que, com "laco==1;", digo que sempre que o valor for 1 ele deve se repitir após o fim das instruções
-	                    //Existem diversos exemplos, mas por ex: for(laco=0;laco=1;) ou for(laco=30;laco=1;) ou for(laco=1;laco!=1;) o loop nunca aconteceria porque as informações são divergentes
-	                   //for(laco=1;laco!=5;) é outro exemplo onde o loop aconteceria infinitamente, porém se
-	                  //for(laco=0;laco!=5;laco++) o loop aconteceria 5 vezes, pois eu defino "laco=0" e depois digo que se ele "laco!=5" ele deve acontecer, mas depois da ultimia instrução, o break;, laco++ faz com que "laco=0" se torne "laco=1" e isso continua ocorrendo até "laco=5", nesse momento "laco não é !=5", então ele não executa o loop ou suas instruções e vai para a função seguinte.
+	printf("\n ]]]____]]]___]]__---  CARTÓRIO DA EBAC  ---__[[___[[[____[[["); //início do menu
+	printf("\n                    ----______________----\n\n\n\n"); // "\n = avançar uma linha"
+	printf("\t ---{ Login de Administrador }--- \n\n\n"); // "\t = espaço inicial"
+	printf("\t ---{ Digite sua senha: ");
+	
+	scanf("%s",senhadigitada);
+	
+	comparacao = strcmp(senhadigitada, "admin");
+	
+	if(comparacao == 0)
 	{
-		system("cls");
-		setlocale(LC_ALL, "Portuguese"); //comando para setar que os caracteres especiais usados serão os do português
-		setlocale (LC_ALL, "Portuguese_Brasil.1252"); 
-	
-		printf("\n ]]]____]]]___]]__---  CARTÓRIO DA EBAC  ---__[[___[[[____[[["); //início do menu
-		printf("\n                    ----______________----\n\n\n\n"); // "\n = avançar uma linha"
-		printf("\t ---{ Escolha a opção desejada do menu }--- \n\n\n"); // "\t = espaço inicial"
-		printf("\t 1. Registrar nomes \n\n");
-		printf("\t 2. Consultar nomes \n\n");
-		printf("\t 3. Deletar nomes \n\n");
-		printf("\t 4. Sair do sistema \n\n\n\n");
-		printf("\t ---{ Escolher opção: ");
 		
-		scanf("%d", &opcao);
-		
-		system("cls"); //limpeza de tela pós escolha do usuário
-		
-		switch(opcao)
+		for(laco=1;laco==1;) //nesse caso o loop acontecerá infinitamente, pois com "laco=1;" defino seu valor, enquanto que, com "laco==1;", digo que sempre que o valor for 1 ele deve se repitir após o fim das instruções
+	    	                //Existem diversos exemplos, mas por ex: for(laco=0;laco=1;) ou for(laco=30;laco=1;) ou for(laco=1;laco!=1;) o loop nunca aconteceria porque as informações são divergentes
+	        	           //for(laco=1;laco!=5;) é outro exemplo onde o loop aconteceria infinitamente, porém se
+	            	      //for(laco=0;laco!=5;laco++) o loop aconteceria 5 vezes, pois eu defino "laco=0" e depois digo que se ele "laco!=5" ele deve acontecer, mas depois da ultimia instrução, o break;, laco++ faz com que "laco=0" se torne "laco=1" e isso continua ocorrendo até "laco=5", nesse momento "laco não é !=5", então ele não executa o loop ou suas instruções e vai para a função seguinte.
 		{
-			case 1:
-			registrar(); //chamando função diretamente ao invés de executar processos dentro da função principal
-			break;
-				
-			case 2:
-			consultar();
-			break;
-				
-			case 3:
-			deletar();
-			break;
-				
-			case 4:
-			printf("\n\n          ---{ Obrigado por utilizar o sistema }---\n\n\n\n\n");
-			return 0;
-			break;
-				
-			default:
-			printf("\n ---____---___--__---  OPÇÃO INVÁLIDA  ---__--___---____---\n\n\n\n");
-			system("pause");
-			break;
-		}
+			system("cls");
+			setlocale(LC_ALL, "Portuguese"); //comando para setar que os caracteres especiais usados serão os do português
+			setlocale (LC_ALL, "Portuguese_Brasil.1252"); 
 		
-		printf("\n\n Software desenvolvido por Rafael G. Ribeiro em 14/07/2023");
+			printf("\n ]]]____]]]___]]__---  CARTÓRIO DA EBAC  ---__[[___[[[____[[["); //início do menu
+			printf("\n                    ----______________----\n\n\n\n"); // "\n = avançar uma linha"
+			printf("\t ---{ Escolha a opção desejada do menu }--- \n\n\n"); // "\t = espaço inicial"
+			printf("\t 1. Registrar nomes \n\n");
+			printf("\t 2. Consultar nomes \n\n");
+			printf("\t 3. Deletar nomes \n\n");
+			printf("\t 4. Sair do sistema \n\n\n\n");
+			printf("\t ---{ Escolher opção: ");
+		
+			scanf("%d", &opcao);
+		
+			system("cls"); //limpeza de tela pós escolha do usuário
+		
+			switch(opcao)
+			{
+				case 1:
+				registrar(); //chamando função diretamente ao invés de executar processos dentro da função principal
+				break;
+					
+				case 2:
+				consultar();
+				break;
+					
+				case 3:
+				deletar();
+				break;
+					
+				case 4:
+				printf("\n\n          ---{ Obrigado por utilizar o sistema }---\n\n\n\n\n");
+				return 0;
+				break;
+					
+				default:
+				printf("\n ---____---___--__---  OPÇÃO INVÁLIDA  ---__--___---____---\n\n\n\n");
+				system("pause");
+				break;
+			}	
+		
+			printf("\n\n Software desenvolvido por Rafael G. Ribeiro em 14/07/2023");
+		}
 	}
+	
+	else
+		system("cls");
+		printf("\n\n          ---{ Senha Incorreta }---\n\n\n\n\n");
+		system("pause");
+		system("cls");
+		main();
+		
+		
 }
